@@ -1,4 +1,4 @@
 package com.example.project4.pizzeria;
 
-public enum Crust {
+public class Deluxe extends Pizza {
 }
