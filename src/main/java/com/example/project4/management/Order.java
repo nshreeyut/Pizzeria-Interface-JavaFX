@@ -1,10 +1,6 @@
 package com.example.project4.management;
 
 import com.example.project4.pizzeria.Pizza;
-import com.example.project4.management.List;
-
-
-import com.example.project4.management.List;
 
 public class Order {
     private static int nextOrderNumber = 0;  // Static field to generate unique order numbers
