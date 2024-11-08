@@ -11,4 +11,17 @@
             fx:controller="com.example.project4.gui.OrderHistoryController"
             prefHeight="400.0" prefWidth="600.0">
 
+    <VBox>
+        <Label text="Order History" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+        <!-- ListView to display the historical orders -->
+        <ListView fx:id="orderHistoryListView" prefHeight="400.0" prefWidth="600.0" />
+
+        <!-- Status label to show messages -->
+        <Label fx:id="statusLabel" text="Loading order history..." />
+
+        <!-- Button to navigate back to the order view -->
+        <Button text="Back to Order View" onAction="#onBackToOrderButtonClicked" />
+    </VBox>
+
 </AnchorPane>

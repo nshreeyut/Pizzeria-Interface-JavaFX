@@ -1,37 +1,64 @@
 package com.example.project4.management;
 
+import com.example.project4.pizzeria.Pizza;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class OrderManager {
-    private List<Order> currentOrders;  // List of current orders
-    private List<Order> historicalOrders; // List of historical orders
+    private List<Order> currentOrders;       // List of current active orders
+    private List<Order> historicalOrders;    // List of past (historical) orders
+    private Order currentOrder;              // The active order being created
 
     /**
      * Constructor for OrderManager.
      * Initializes empty lists for current and historical orders.
      */
     public OrderManager() {
-        this.currentOrders = new List<>();
-        this.historicalOrders = new List<>();
+        this.currentOrders = new ArrayList<>();     // Initialize with ArrayList
+        this.historicalOrders = new ArrayList<>();
+        this.currentOrder = new Order();            // Start with a new active order
     }
 
     /**
-     * Places a new order by adding it to the current orders list.
-     * @param order The new order to be added.
+     * Returns the active order being built.
+     * @return The current order.
      */
-    public void placeOrder(Order order) {
-        currentOrders.add(order);
+    public Order getCurrentOrder() {
+        return currentOrder;
     }
 
     /**
-     * Browses through current orders.
-     * @return An iterable list of current orders.
+     * Returns the list of historical orders.
+     * @return A list of historical (past) orders.
      */
-    public Iterable<Order> browseOrders() {
-        return currentOrders;
+    public List<Order> getHistoricalOrders() {
+        return historicalOrders;
+    }
+
+    /**
+     * Adds a pizza to the current order.
+     * @param pizza The pizza to add.
+     */
+    public void addPizzaToCurrentOrder(Pizza pizza) {
+        if (pizza != null) {
+            currentOrder.addPizza(pizza);
+        }
+    }
+
+    /**
+     * Places the current order, adds it to the current orders list, and resets the active order.
+     */
+    public void placeOrder() {
+        if (currentOrder != null && !currentOrder.getPizzas().isEmpty()) {
+            currentOrders.add(currentOrder);
+            this.currentOrder = new Order(); // Start a new order after placing the current one
+        } else {
+            System.out.println("Order is empty. Cannot place an empty order.");
+        }
     }
 
     /**
@@ -44,8 +71,8 @@ public class OrderManager {
         while (iterator.hasNext()) {
             Order order = iterator.next();
             if (order.getOrderNumber() == orderNumber) {
-                iterator.remove();  // Remove from current orders
-                historicalOrders.add(order);  // Add to historical orders
+                iterator.remove();                  // Remove from current orders
+                historicalOrders.add(order);        // Move to historical orders
                 return true;
             }
         }
@@ -64,5 +91,12 @@ public class OrderManager {
                 writer.newLine();
             }
         }
+    }
+
+    /**
+     * Clears the current order, resetting to a new empty order.
+     */
+    public void clearCurrentOrder() {
+        this.currentOrder = new Order(); // Reinitialize to start fresh
     }
 }

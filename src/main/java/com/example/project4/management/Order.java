@@ -1,18 +1,20 @@
 package com.example.project4.management;
 
 import com.example.project4.pizzeria.Pizza;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
     private static int nextOrderNumber = 0;  // Static field to generate unique order numbers
     private int number;                      // Unique order number for each order
-    private List<Pizza> pizzas;              // Custom List of pizzas in the order
+    private List<Pizza> pizzas;              // List of pizzas in the order
 
     /**
      * Constructs an empty Order with a unique order number and an empty list of pizzas.
      */
     public Order() {
         this.number = nextOrderNumber++;
-        this.pizzas = new List<>();
+        this.pizzas = new ArrayList<>(); // Initialize with ArrayList
     }
 
     /**
@@ -29,11 +31,7 @@ public class Order {
      * @return true if the pizza was successfully removed, false otherwise.
      */
     public boolean removePizza(Pizza pizza) {
-        if (pizzas.contains(pizza)) {
-            pizzas.remove(pizza);
-            return true;
-        }
-        return false;
+        return pizzas.remove(pizza);
     }
 
     /**
@@ -52,13 +50,21 @@ public class Order {
         for (Pizza pizza : pizzas) {
             subtotal += pizza.price();
         }
-        double tax = subtotal * 0.06625; // New Jersey tax rate
+        double tax = subtotal * 0.06625; // NJ sales tax rate
         return subtotal + tax;
     }
 
     /**
+     * Returns the list of pizzas in the order.
+     * @return A list of pizzas in the order.
+     */
+    public List<Pizza> getPizzas() {
+        return pizzas;
+    }
+
+    /**
      * Returns the order number.
-     * @return the order number.
+     * @return The order number.
      */
     public int getOrderNumber() {
         return number;
@@ -75,8 +81,7 @@ public class Order {
         for (Pizza pizza : pizzas) {
             sb.append(pizza.toString()).append("\n");
         }
-        sb.append("Total: $").append(String.format("%.2f", calculateTotal()));
+        sb.append("Order Total: $").append(String.format("%.2f", calculateTotal()));
         return sb.toString();
     }
 }
-

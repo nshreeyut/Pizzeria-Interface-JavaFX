@@ -1,4 +1,5 @@
 package com.example.project4.pizzeria;
+import java.util.List;
 
 public class BuildYourOwn extends Pizza {
 
@@ -10,7 +11,6 @@ public class BuildYourOwn extends Pizza {
 
     @Override
     public double price() {
-        // Define base pricing based on size
         double basePrice;
         switch (getSize()) {
             case SMALL:
@@ -25,9 +25,22 @@ public class BuildYourOwn extends Pizza {
             default:
                 basePrice = 0;
         }
-
         double toppingCost = getToppings().size() * TOPPING_COST;
         return basePrice + toppingCost;
+    }
+
+    /**
+     * Sets the list of toppings for the pizza.
+     * This method is only used for Build Your Own pizzas.
+     * @param toppings The list of toppings to set for this pizza.
+     */
+    public void setToppings(List<Topping> toppings) {
+        getToppings().clear(); // Clear any existing toppings
+        getToppings().addAll(toppings); // Add new toppings
+    }
+
+    public static double getToppingCost() {
+        return TOPPING_COST;
     }
 
     @Override

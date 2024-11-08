@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.project4.gui.OrderDetailController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.gui.OrderDetailController">
+
+    <!-- Title for the Order Details View -->
+    <Label layoutX="401.0" layoutY="20.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Order Details" />
+
+    <!-- ListView to display pizzas in the order -->
+    <ListView fx:id="pizzaListView" layoutX="35.0" layoutY="50.0" prefHeight="342.0" prefWidth="831.0" />
+
+    <!-- Labels for subtotal, tax, and total cost -->
+    <Label layoutX="100.0" layoutY="419.0" style="-fx-font-size: 14px;" text="Subtotal:" />
+    <Label layoutX="301.0" layoutY="419.0" style="-fx-font-size: 14px;" text="Tax (6.625%):" />
+    <Label layoutX="537.0" layoutY="417.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Total Cost:" />
+
+    <!-- HBox for buttons at the bottom, centered and spaced -->
+    <HBox alignment="CENTER" layoutX="75.0" layoutY="486.0" prefWidth="750.0" spacing="20">
+        <Button fx:id="removePizzaButton" text="Remove Selected Pizza" />
+        <Button fx:id="placeOrderButton" style="-fx-font-weight: bold;" text="Place Order" />
+        <Button fx:id="clearOrderButton" text="Clear Order" />
+    </HBox>
+    <HBox alignment="CENTER" layoutX="75.0" layoutY="542.0" prefWidth="750.0" spacing="20">
+        <Button fx:id="orderMenuButton" text="Order Menu" onAction="#onBackToOrderButtonClicked" />
+        <Button fx:id="historicalOrdersButton" text="Past Orders" onAction="#onViewOrderHistoryButtonClicked" />
+   </HBox>
 
 </AnchorPane>
