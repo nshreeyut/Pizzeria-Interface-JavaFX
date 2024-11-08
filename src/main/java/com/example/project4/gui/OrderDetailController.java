@@ -46,16 +46,31 @@ public class OrderDetailController {
     public void refreshOrderList() {
         pizzaListView.getItems().clear();
 
-        // Get pizzas from the current order
         for (Pizza pizza : orderManager.getCurrentOrder().getPizzas()) {
             pizzaListView.getItems().add(pizza.toString());
         }
-
-        // Update subtotal, tax, and total labels
         double subtotal = orderManager.getCurrentOrder().calculateTotal() / 1.06625;
         double tax = subtotal * 0.06625;
         subtotalLabel.setText(String.format("$%.2f", subtotal));
         taxLabel.setText(String.format("$%.2f", tax));
         totalLabel.setText(String.format("$%.2f", orderManager.getCurrentOrder().calculateTotal()));
+    }
+
+    @FXML
+    public void onRemoveSelectedPizzaButtonClicked() {
+        int selectedIndex = pizzaListView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            orderManager.getCurrentOrder().getPizzas().remove(selectedIndex);
+            refreshOrderList();
+
+        }
+    }
+    @FXML
+    public void onClearOrderButtonClicked() {
+        orderManager.clearCurrentOrder();
+        refreshOrderList();
+        subtotalLabel.setText("$0.00");
+        taxLabel.setText("$0.00");
+        totalLabel.setText("$0.00");
     }
 }

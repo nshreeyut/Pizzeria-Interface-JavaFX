@@ -11,20 +11,24 @@
     <!-- ListView to display pizzas in the order -->
     <ListView fx:id="pizzaListView" layoutX="35.0" layoutY="50.0" prefHeight="342.0" prefWidth="831.0" />
 
-    <!-- Labels for subtotal, tax, and total cost -->
-    <Label layoutX="100.0" layoutY="419.0" style="-fx-font-size: 14px;" text="Subtotal:" />
-    <Label layoutX="301.0" layoutY="419.0" style="-fx-font-size: 14px;" text="Tax (6.625%):" />
-    <Label layoutX="537.0" layoutY="417.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Total Cost:" />
+    <HBox alignment="CENTER" layoutX="157.0" layoutY="426.0" prefHeight="17.0" prefWidth="612.0" spacing="20">
+        <Label text="Subtotal:" />
+        <Label fx:id="subtotalLabel" />
+        <Label text="Tax (6.625%):" />
+        <Label fx:id="taxLabel" />
+        <Label text="Total Cost:" />
+        <Label fx:id="totalLabel" />
+    </HBox>
 
     <!-- HBox for buttons at the bottom, centered and spaced -->
     <HBox alignment="CENTER" layoutX="75.0" layoutY="486.0" prefWidth="750.0" spacing="20">
-        <Button fx:id="removePizzaButton" text="Remove Selected Pizza" />
+        <Button fx:id="removePizzaButton" onAction="#onRemoveSelectedPizzaButtonClicked" text="Remove Selected Pizza" />
         <Button fx:id="placeOrderButton" style="-fx-font-weight: bold;" text="Place Order" />
-        <Button fx:id="clearOrderButton" text="Clear Order" />
+        <Button fx:id="clearOrderButton" onAction="#onClearOrderButtonClicked" text="Clear Order" />
     </HBox>
     <HBox alignment="CENTER" layoutX="75.0" layoutY="542.0" prefWidth="750.0" spacing="20">
-        <Button fx:id="orderMenuButton" text="Order Menu" onAction="#onBackToOrderButtonClicked" />
-        <Button fx:id="historicalOrdersButton" text="Past Orders" onAction="#onViewOrderHistoryButtonClicked" />
+        <Button fx:id="orderMenuButton" onAction="#onBackToOrderButtonClicked" text="Order Menu" />
+        <Button fx:id="historicalOrdersButton" onAction="#onViewOrderHistoryButtonClicked" text="Past Orders" />
    </HBox>
 
 </AnchorPane>
