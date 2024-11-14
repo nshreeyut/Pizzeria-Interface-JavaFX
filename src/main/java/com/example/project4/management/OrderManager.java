@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
 public class OrderManager {
     private List<Order> currentOrders;       // List of current active orders
     private List<Order> historicalOrders;    // List of past (historical) orders
@@ -97,6 +98,8 @@ public class OrderManager {
      * Clears the current order, resetting to a new empty order.
      */
     public void clearCurrentOrder() {
-        this.currentOrder = new Order(); // Reinitialize to start fresh
+        if (currentOrder != null) {
+            currentOrder.clearOrder();  // Use clearOrder to empty the list of pizzas
+        }
     }
 }

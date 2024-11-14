@@ -30,6 +30,7 @@ public class Order {
      * @param pizza The pizza to remove.
      * @return true if the pizza was successfully removed, false otherwise.
      */
+    // it just check if the pizza is removed or not
     public boolean removePizza(Pizza pizza) {
         return pizzas.remove(pizza);
     }

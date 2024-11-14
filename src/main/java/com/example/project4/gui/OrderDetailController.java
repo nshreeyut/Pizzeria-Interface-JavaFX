@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
+
 public class OrderDetailController {
     @FXML
     private ListView<String> pizzaListView;
@@ -15,6 +16,9 @@ public class OrderDetailController {
     private Label taxLabel;
     @FXML
     private Label totalLabel;
+    @FXML
+
+
 
     private OrderManager orderManager;
     private Main mainApp;
@@ -73,4 +77,6 @@ public class OrderDetailController {
         taxLabel.setText("$0.00");
         totalLabel.setText("$0.00");
     }
+
+
 }
