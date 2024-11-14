@@ -23,7 +23,7 @@
     <!-- HBox for buttons at the bottom, centered and spaced -->
     <HBox alignment="CENTER" layoutX="75.0" layoutY="486.0" prefWidth="750.0" spacing="20">
         <Button fx:id="removePizzaButton" onAction="#onRemoveSelectedPizzaButtonClicked" text="Remove Selected Pizza" />
-        <Button fx:id="placeOrderButton" style="-fx-font-weight: bold;" text="Place Order" />
+        <Button fx:id="placeOrderButton" style="-fx-font-weight: bold;" text="Place Order" onAction="#onPlaceOrderButtonClicked"/>
         <Button fx:id="clearOrderButton" onAction="#onClearOrderButtonClicked" text="Clear Order" />
     </HBox>
     <HBox alignment="CENTER" layoutX="75.0" layoutY="542.0" prefWidth="750.0" spacing="20">

@@ -77,6 +77,10 @@ public class OrderDetailController {
         taxLabel.setText("$0.00");
         totalLabel.setText("$0.00");
     }
-
+    @FXML
+    public void onPlaceOrderButtonClicked() {
+        orderManager.placeOrder();
+        refreshOrderList();
+    }
 
 }

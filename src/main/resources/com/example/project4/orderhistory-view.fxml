@@ -22,6 +22,7 @@
 
         <!-- Button to navigate back to the order view -->
         <Button text="Back to Order View" onAction="#onBackToOrderButtonClicked" />
+
     </VBox>
 
 </AnchorPane>
