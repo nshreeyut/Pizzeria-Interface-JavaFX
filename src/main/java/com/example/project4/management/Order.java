@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private static int nextOrderNumber = 0;  // Static field to generate unique order numbers
+    private static int nextOrderNumber = 1;  // Static field to generate unique order numbers
     private int number;                      // Unique order number for each order
     private List<Pizza> pizzas;              // List of pizzas in the order
 

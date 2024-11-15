@@ -53,14 +53,17 @@ public class OrderManager {
     /**
      * Places the current order, adds it to the current orders list, and resets the active order.
      */
-    public void placeOrder() {
+    public boolean placeOrder() {
         if (currentOrder != null && !currentOrder.getPizzas().isEmpty()) {
-            currentOrders.add(currentOrder);
-            this.currentOrder = new Order(); // Start a new order after placing the current one
-        } else {
-            System.out.println("Order is empty. Cannot place an empty order.");
+            if (!historicalOrders.contains(currentOrder)) { // Ensure no duplicates
+                historicalOrders.add(currentOrder);        // Add to historical orders
+            }
+            this.currentOrder = new Order();               // Reset currentOrder for the next transaction
+            return true; // Order successfully placed
         }
+        return false; // Order was not placed
     }
+
 
     /**
      * Cancels an order by removing it from the current orders and adding it to the historical orders.
@@ -102,4 +105,8 @@ public class OrderManager {
             currentOrder.clearOrder();  // Use clearOrder to empty the list of pizzas
         }
     }
+    public void setCurrentOrder(Order order) {
+        this.currentOrder = order;
+    }
+
 }

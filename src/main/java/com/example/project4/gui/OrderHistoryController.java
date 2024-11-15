@@ -27,6 +27,8 @@ public class OrderHistoryController {
         loadOrderHistory(); // Load the historical orders into the ListView
     }
 
+
+
     // Method to load historical orders into the ListView
     private void loadOrderHistory() {
         orderHistoryListView.getItems().clear();
@@ -45,6 +47,24 @@ public class OrderHistoryController {
     public void onBackToOrderButtonClicked() {
         if (mainApp != null) {
             mainApp.showOrderView();
+        }
+    }
+    public void onOrderList() {
+        int selectedIndex = orderHistoryListView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0 && orderManager != null) {
+            Order selectedOrder = orderManager.getHistoricalOrders().get(selectedIndex);
+            orderManager.setCurrentOrder(selectedOrder); // Replace current order with selected historical order
+            mainApp.showOrderDetailView(); // Navigate to order details view
+            statusLabel.setText("Order loaded into details.");
+        }
+    }
+    public void cancelOrder() {
+        int selectedIndex = orderHistoryListView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0 && orderManager != null) {
+            Order selectedOrder = orderManager.getHistoricalOrders().get(selectedIndex);
+            orderManager.getHistoricalOrders().remove(selectedOrder); // Remove from historical orders
+            loadOrderHistory(); // Refresh the ListView
+            statusLabel.setText("Order canceled successfully.");
         }
     }
 

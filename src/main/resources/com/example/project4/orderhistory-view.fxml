@@ -13,7 +13,6 @@
 
     <VBox>
         <Label text="Order History" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
-
         <!-- ListView to display the historical orders -->
         <ListView fx:id="orderHistoryListView" prefHeight="400.0" prefWidth="600.0" />
 
@@ -22,6 +21,10 @@
 
         <!-- Button to navigate back to the order view -->
         <Button text="Back to Order View" onAction="#onBackToOrderButtonClicked" />
+        <Button text="Load Order for Editing" onAction="#onOrderList" />
+        <Button text="Cancel Order" onAction="#cancelOrder" />
+
+
 
     </VBox>
 
