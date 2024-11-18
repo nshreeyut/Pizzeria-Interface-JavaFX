@@ -7,10 +7,23 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 
+/**
+ * The Main class serves as the entry point for the RU Pizzeria Management System application.
+ * It initializes the primary stage, manages scene transitions, and shares a single instance
+ * of {@link OrderManager} across all controllers to handle order-related operations.
+ * @author Shreeyut
+ * @author Andy
+ */
 public class Main extends Application {
     private Stage primaryStage;
     private OrderManager orderManager; // Shared OrderManager for all controllers
 
+    /**
+     * Starts the application by initializing the primary stage, creating the shared
+     * {@link OrderManager}, and displaying the initial Order View.
+     *
+     * @param primaryStage the primary stage for this application
+     */
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -20,6 +33,10 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Displays the Order View by loading its FXML file and setting it on the primary stage.
+     * Passes the {@link Main} instance and the shared {@link OrderManager} to the {@link OrderController}.
+     */
     public void showOrderView() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project4/order-view.fxml"));
@@ -35,6 +52,10 @@ public class Main extends Application {
         }
     }
 
+    /**
+     * Displays the Order Detail View by loading its FXML file and setting it on the primary stage.
+     * Passes the {@link Main} instance and the shared {@link OrderManager} to the {@link OrderDetailController}.
+     */
     public void showOrderDetailView() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project4/orderdetail-view.fxml"));
@@ -50,6 +71,10 @@ public class Main extends Application {
         }
     }
 
+    /**
+     * Displays the Order History View by loading its FXML file and setting it on the primary stage.
+     * Passes the {@link Main} instance and the shared {@link OrderManager} to the {@link OrderHistoryController}.
+     */
     public void showOrderHistoryView() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project4/orderhistory-view.fxml"));
@@ -65,6 +90,10 @@ public class Main extends Application {
         }
     }
 
+    /**
+     * The main entry point of the application.
+     * @param args command-line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }

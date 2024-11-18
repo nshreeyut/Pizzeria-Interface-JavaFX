@@ -28,16 +28,6 @@ public class Order {
     }
 
     /**
-     * Removes a specific pizza from the order.
-     * @param pizza The pizza to remove.
-     * @return true if the pizza was successfully removed, false otherwise.
-     */
-    // it just check if the pizza is removed or not
-    public boolean removePizza(Pizza pizza) {
-        return pizzas.remove(pizza);
-    }
-
-    /**
      * Clears all pizzas from the order.
      */
     public void clearOrder() {
@@ -63,14 +53,6 @@ public class Order {
      */
     public List<Pizza> getPizzas() {
         return pizzas;
-    }
-
-    /**
-     * Returns the order number.
-     * @return The order number.
-     */
-    public int getOrderNumber() {
-        return number;
     }
 
     /**
