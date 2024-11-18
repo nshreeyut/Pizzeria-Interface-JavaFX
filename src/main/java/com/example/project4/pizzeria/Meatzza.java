@@ -1,5 +1,12 @@
 package com.example.project4.pizzeria;
-
+/**
+ * Represents a Meatzza pizza, which is a predefined type of pizza with specific meat toppings.
+ * The Meatzza pizza includes toppings such as Sausage, Pepperoni, Beef, and Ham.
+ * This class extends the abstract {@link Pizza} class and provides its own implementation of the
+ * {@code price()} method based on the pizza size.
+ * @author Shreeyut
+ * @author Andy
+ */
 public class Meatzza extends Pizza {
     public Meatzza() {
         getToppings().add(Topping.SAUSAGE);
@@ -8,6 +15,11 @@ public class Meatzza extends Pizza {
         getToppings().add(Topping.HAM);
     }
 
+    /**
+     * Calculates the price of the Meatzza pizza based on its size.
+     * The price varies for Small, Medium, and Large sizes.
+     * @return The price of the pizza as a {@code double} value.
+     */
     @Override
     public double price() {
         switch (getSize()) {
@@ -22,6 +34,11 @@ public class Meatzza extends Pizza {
         }
     }
 
+    /**
+     * Returns a string representation of the Meatzza pizza,
+     * including its size, crust type, and list of toppings.
+     * @return A formatted string describing the Meatzza pizza.
+     */
     @Override
     public String toString() {
         return "Meatzza Pizza, " + getSize() + ", Crust: " + getCrust() + ", Toppings: " + getToppings();

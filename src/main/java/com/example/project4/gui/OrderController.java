@@ -12,6 +12,13 @@ import com.example.project4.pizzeria.*;
 import com.example.project4.management.*;
 import java.util.ArrayList;
 
+/**
+ * Controller class for handling pizza ordering logic in the GUI.
+ * Manages the user interface for selecting pizza type, style, size, and toppings,
+ * and handles adding pizzas to the current order.
+ * @author Shreeyut
+ * @author Andy
+ */
 public class OrderController {
     private Main mainApp;
     private Pizza currentPizza;
@@ -40,11 +47,13 @@ public class OrderController {
     @FXML
     private ImageView pizzaImageView;
 
-
+    /**
+     * Initializes the GUI components and sets up the listeners for ComboBoxes and ListViews.
+     * Called automatically after the FXML file has been loaded.
+     */
     @FXML
     public void initialize() {
         PizzaTotalLabel.setText("Pizza Total: $0.00");
-
         availableToppingsListView.getItems().addAll(Topping.values());
         pizzaTypeComboBox.getItems().addAll("Deluxe", "BBQ Chicken", "Meatzza", "Build Your Own");
         pizzaTypeComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -67,11 +76,19 @@ public class OrderController {
         });
     }
 
-    // Method to initialize OrderController with an OrderManager instance
+    /**
+     * Sets the OrderManager instance for managing orders.
+     * @param orderManager The OrderManager instance.
+     */
     public void setOrderManager(OrderManager orderManager) {
         this.orderManager = orderManager;
     }
 
+    /**
+     * Adds the currently selected pizza to the order.
+     * If the pizza is a Build Your Own, it sets the selected toppings.
+     * Updates the status label and clears the selection.
+     */
     @FXML
     public void onAddToOrderClick() {
         if (currentPizza == null || pizzaSizeComboBox.getValue() == null) {
@@ -91,7 +108,9 @@ public class OrderController {
         statusLabel.setText("Pizza added to order.");
     }
 
-
+    /**
+     * Clears the current selection and resets the UI components.
+     */
     @FXML
     public void clearButtonClicked() {
         pizzaTypeComboBox.getSelectionModel().clearSelection();
@@ -107,6 +126,9 @@ public class OrderController {
         pizzaImageView.setImage(null);  // Reset image view to initial state
     }
 
+    /**
+     * Adds the selected topping to the pizza and updates the price.
+     */
     @FXML
     private void onAddToppingClick() {
         Topping selectedTopping = availableToppingsListView.getSelectionModel().getSelectedItem();
@@ -120,6 +142,9 @@ public class OrderController {
         }
     }
 
+    /**
+     * Removes the selected topping from the pizza and updates the price.
+     */
     @FXML
     private void onRemoveToppingClick() {
         Topping selectedTopping = selectedToppingsListView.getSelectionModel().getSelectedItem();
@@ -133,11 +158,18 @@ public class OrderController {
         }
     }
 
+    /**
+     * Sets the reference to the main application.
+     * @param mainApp The main application instance.
+     */
     @FXML
     public void setMain(Main mainApp) {
         this.mainApp = mainApp;
     }
 
+    /**
+     * Navigates to the Order Details view.
+     */
     @FXML
     public void onViewOrderDetailsButtonClicked() {
         if (mainApp != null) {
@@ -145,13 +177,15 @@ public class OrderController {
         }
     }
 
+    /**
+     * Handles the selection of pizza type and updates the current pizza instance.
+     * @param pizzaType The selected pizza type.
+     */
     private void onPizzaTypeSelected(String pizzaType) {
         if (pizzaType == null || currentFactory == null) {
             return;
         }
-
         selectedToppingsListView.getItems().clear();
-
         switch (pizzaType) {
             case "Deluxe":
                 currentPizza = currentFactory.createDeluxe();
@@ -176,11 +210,13 @@ public class OrderController {
                 currentPizza = null;
                 break;
         }
-
         updatePizzaPrice();
     }
 
-
+    /**
+     * Handles the selection of pizza style and sets the current factory accordingly.
+     * @param style The selected pizza style.
+     */
     private void onPizzaStyleSelected(String style) {
         switch (style) {
             case "New York Style":
@@ -190,20 +226,32 @@ public class OrderController {
                 currentFactory = new ChicagoPizza();
                 break;
         }
+        if (currentPizza == null && selectedType != null) {
+            onPizzaTypeSelected(selectedType);
+        }
     }
 
+    /**
+     * Disables the topping selection UI components.
+     */
     private void disableToppingsSelection() {
         availableToppingsListView.setDisable(true);
         addToppingButton.setDisable(true);
         removeToppingButton.setDisable(true);
     }
 
+    /**
+     * Enables the topping selection UI components.
+     */
     private void enableToppingsSelection() {
         availableToppingsListView.setDisable(false);
         addToppingButton.setDisable(false);
         removeToppingButton.setDisable(false);
     }
 
+    /**
+     * Updates the displayed pizza price based on the selected size and toppings.
+     */
     private void updatePizzaPrice() {
         if (currentPizza == null || pizzaSizeComboBox.getValue() == null) {
             PizzaTotalLabel.setText("Pizza Total: $0.00"); // Default if no pizza or size selected
@@ -217,6 +265,9 @@ public class OrderController {
         PizzaTotalLabel.setText("Pizza Total: $" + String.format("%.2f", totalPrice));
     }
 
+    /**
+     * Updates the displayed image based on the selected pizza style and type.
+     */
     private void updatePizzaImage() {
         if (selectedStyle == null || selectedType == null) return;
         String imagePath = "/images/" + selectedStyle.toLowerCase().replace(" ", "_") + "_" + selectedType.toLowerCase().replace(" ", "_") + ".png";

@@ -11,6 +11,8 @@ public class Order {
 
     /**
      * Constructs an empty Order with a unique order number and an empty list of pizzas.
+     * @author Shreeyut
+     * @author Andy
      */
     public Order() {
         this.number = nextOrderNumber++;

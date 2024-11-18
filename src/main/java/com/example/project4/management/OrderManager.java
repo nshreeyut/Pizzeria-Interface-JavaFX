@@ -5,21 +5,19 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-
 public class OrderManager {
-    private List<Order> currentOrders;       // List of current active orders
     private List<Order> historicalOrders;    // List of past (historical) orders
     private Order currentOrder;              // The active order being created
 
     /**
      * Constructor for OrderManager.
      * Initializes empty lists for current and historical orders.
+     * @author Shreeyut
+     * @author Andy
      */
     public OrderManager() {
-        this.currentOrders = new ArrayList<>();     // Initialize with ArrayList
         this.historicalOrders = new ArrayList<>();
         this.currentOrder = new Order();            // Start with a new active order
     }
@@ -64,23 +62,20 @@ public class OrderManager {
         return false; // Order was not placed
     }
 
-
     /**
-     * Cancels an order by removing it from the current orders and adding it to the historical orders.
-     * @param orderNumber The order number to be canceled.
+     * Cancels the specified order by removing it from the historical orders list.
+     * @param order The order to be canceled.
      * @return true if the order was found and canceled, false otherwise.
      */
-    public boolean cancelOrder(int orderNumber) {
-        Iterator<Order> iterator = currentOrders.iterator();
-        while (iterator.hasNext()) {
-            Order order = iterator.next();
-            if (order.getOrderNumber() == orderNumber) {
-                iterator.remove();                  // Remove from current orders
-                historicalOrders.add(order);        // Move to historical orders
-                return true;
-            }
+    public boolean cancelOrder(Order order) {
+        if (order == null) {
+            return false;
         }
-        return false; // Order not found
+        if (historicalOrders.contains(order)) {
+            historicalOrders.remove(order);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -92,6 +87,7 @@ public class OrderManager {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             for (Order order : historicalOrders) {
                 writer.write(order.toString());
+                writer.newLine();
                 writer.newLine();
             }
         }
@@ -105,6 +101,11 @@ public class OrderManager {
             currentOrder.clearOrder();  // Use clearOrder to empty the list of pizzas
         }
     }
+
+    /**
+     * Sets the current order to the order passed in.
+     * @param order Order passed in
+     */
     public void setCurrentOrder(Order order) {
         this.currentOrder = order;
     }

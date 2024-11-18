@@ -5,11 +5,9 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.gui.OrderDetailController">
 
-    <!-- Title for the Order Details View -->
     <Label layoutX="401.0" layoutY="20.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Order Details" />
 
-    <!-- ListView to display pizzas in the order -->
-    <ListView fx:id="pizzaListView" layoutX="35.0" layoutY="50.0" prefHeight="342.0" prefWidth="831.0" />
+    <ListView fx:id="pizzaListView" layoutX="25.0" layoutY="50.0" prefHeight="342.0" prefWidth="853.0" />
 
     <HBox alignment="CENTER" layoutX="157.0" layoutY="426.0" prefHeight="17.0" prefWidth="612.0" spacing="20">
         <Label text="Subtotal:" />
@@ -20,15 +18,13 @@
         <Label fx:id="totalLabel" />
     </HBox>
 
-    <!-- HBox for buttons at the bottom, centered and spaced -->
-    <HBox alignment="CENTER" layoutX="75.0" layoutY="486.0" prefWidth="750.0" spacing="20">
+    <HBox alignment="CENTER" layoutX="225.0" layoutY="470.0" prefWidth="450.0" spacing="20">
         <Button fx:id="removePizzaButton" onAction="#onRemoveSelectedPizzaButtonClicked" text="Remove Selected Pizza" />
-        <Button fx:id="placeOrderButton" style="-fx-font-weight: bold;" text="Place Order" onAction="#onPlaceOrderButtonClicked"/>
         <Button fx:id="clearOrderButton" onAction="#onClearOrderButtonClicked" text="Clear Order" />
     </HBox>
-    <HBox alignment="CENTER" layoutX="75.0" layoutY="542.0" prefWidth="750.0" spacing="20">
-        <Button fx:id="orderMenuButton" onAction="#onBackToOrderButtonClicked" text="Order Menu" />
-        <Button fx:id="historicalOrdersButton" onAction="#onViewOrderHistoryButtonClicked" text="Past Orders" />
-   </HBox>
+
+    <Button fx:id="placeOrderButton" layoutX="351.0" layoutY="507.0" onAction="#onPlaceOrderButtonClicked" prefWidth="200.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Place Order" />
+    <Button fx:id="orderMenuButton" layoutX="25.0" layoutY="550.0" onAction="#onBackToOrderButtonClicked" text="Add More Pizza" />
+    <Button fx:id="historicalOrdersButton" layoutX="784.0" layoutY="550.0" onAction="#onViewOrderHistoryButtonClicked" text="Past Orders" />
 
 </AnchorPane>

@@ -2,8 +2,19 @@ package com.example.project4.management;
 
 import com.example.project4.pizzeria.*;
 
+/**
+ * Concrete factory class for creating Chicago-style pizzas.
+ * Implements the {@link PizzaFactory} interface to provide specific implementations
+ * of Chicago-style pizza types with predefined crusts.
+ * @author Shreeyut
+ * @author Andy
+ */
 public class ChicagoPizza implements PizzaFactory {
 
+    /**
+     * Creates a Deluxe pizza with a Chicago-style Deep Dish crust.
+     * @return A new {@link Deluxe} pizza with Deep Dish crust.
+     */
     @Override
     public Pizza createDeluxe() {
         Pizza pizza = new Deluxe();
@@ -11,6 +22,10 @@ public class ChicagoPizza implements PizzaFactory {
         return pizza;
     }
 
+    /**
+     * Creates a Meatzza pizza with a Chicago-style Stuffed crust.
+     * @return A new {@link Meatzza} pizza with Stuffed crust.
+     */
     @Override
     public Pizza createMeatzza() {
         Pizza pizza = new Meatzza();
@@ -18,6 +33,10 @@ public class ChicagoPizza implements PizzaFactory {
         return pizza;
     }
 
+    /**
+     * Creates a BBQ Chicken pizza with a Chicago-style Pan crust.
+     * @return A new {@link BBQChicken} pizza with Pan crust.
+     */
     @Override
     public Pizza createBBQChicken() {
         Pizza pizza = new BBQChicken();
@@ -25,6 +44,11 @@ public class ChicagoPizza implements PizzaFactory {
         return pizza;
     }
 
+    /**
+     * Creates a Build Your Own pizza with a Chicago-style Pan crust.
+     * This method initializes a customizable pizza with no predefined toppings.
+     * @return A new {@link BuildYourOwn} pizza with Pan crust.
+     */
     @Override
     public Pizza createBuildYourOwn() {
         Pizza pizza = new BuildYourOwn();
