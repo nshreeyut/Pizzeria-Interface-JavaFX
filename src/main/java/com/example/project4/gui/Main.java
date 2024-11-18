@@ -1,3 +1,7 @@
+/**
+ * @author Shreeyut
+ * @author Andy
+ */
 package com.example.project4.gui;
 
 import com.example.project4.management.OrderManager;
@@ -11,8 +15,6 @@ import javafx.scene.Parent;
  * The Main class serves as the entry point for the RU Pizzeria Management System application.
  * It initializes the primary stage, manages scene transitions, and shares a single instance
  * of {@link OrderManager} across all controllers to handle order-related operations.
- * @author Shreeyut
- * @author Andy
  */
 public class Main extends Application {
     private Stage primaryStage;

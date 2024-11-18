@@ -1,9 +1,18 @@
+/**
+ * @author Shreeyut
+ * @author Andy
+ */
 package com.example.project4.management;
 
 import com.example.project4.pizzeria.Pizza;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a customer order in the RU Pizzeria Management System.
+ * Each order has a unique order number and contains a list of pizzas.
+ * The order number is automatically generated and incremented for each new order.
+ */
 public class Order {
     private static int nextOrderNumber = 1;  // Static field to generate unique order numbers
     private int number;                      // Unique order number for each order
@@ -11,8 +20,6 @@ public class Order {
 
     /**
      * Constructs an empty Order with a unique order number and an empty list of pizzas.
-     * @author Shreeyut
-     * @author Andy
      */
     public Order() {
         this.number = nextOrderNumber++;

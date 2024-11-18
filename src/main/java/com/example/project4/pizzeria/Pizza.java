@@ -1,5 +1,8 @@
+/**
+ * @author Shreeyut
+ * @author Andy
+ */
 package com.example.project4.pizzeria;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,8 +10,6 @@ import java.util.List;
  * Abstract class representing a generic pizza.
  * Provides common attributes and methods for all types of pizzas, including toppings, crust, and size.
  * The specific price calculation is left to the subclasses through the abstract {@link #price()} method.
- * @author Shreeyut
- * @author Andy
  */
 public abstract class Pizza {
     private List<Topping> toppings; // List of toppings on the pizza

@@ -1,3 +1,7 @@
+/**
+ * @author Shreeyut
+ * @author Andy
+ */
 package com.example.project4.management;
 
 import com.example.project4.pizzeria.Pizza;
@@ -6,8 +10,6 @@ import com.example.project4.pizzeria.Pizza;
  * Interface defining the factory methods for creating various types of pizzas.
  * This interface follows the Factory Method design pattern, providing methods to create
  * specific types of pizzas based on the concrete factory implementation (e.g., New York or Chicago style).
- * @author Shreeyut
- * @author Andy
  */
 public interface PizzaFactory {
 

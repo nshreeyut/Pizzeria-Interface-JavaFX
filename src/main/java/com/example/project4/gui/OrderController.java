@@ -1,3 +1,7 @@
+/**
+ * @author Shreeyut
+ * @author Andy
+ */
 package com.example.project4.gui;
 
 import javafx.fxml.FXML;
@@ -16,8 +20,6 @@ import java.util.ArrayList;
  * Controller class for handling pizza ordering logic in the GUI.
  * Manages the user interface for selecting pizza type, style, size, and toppings,
  * and handles adding pizzas to the current order.
- * @author Shreeyut
- * @author Andy
  */
 public class OrderController {
     private Main mainApp;

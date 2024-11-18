@@ -1,11 +1,14 @@
+/**
+ * @author Shreeyut
+ * @author Andy
+ */
 package com.example.project4.pizzeria;
+
 /**
  * Represents a BBQ Chicken pizza, which is a predefined type of pizza with specific toppings.
  * The BBQ Chicken pizza includes toppings such as BBQ Chicken, Green Pepper, Provolone, and Cheddar.
  * This class extends the abstract {@link Pizza} class and provides its own implementation of the
  * {@code price()} method based on the pizza size.
- * @author Shreeyut
- * @author Andy
  */
 public class BBQChicken extends Pizza {
 

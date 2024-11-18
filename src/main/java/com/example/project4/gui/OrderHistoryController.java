@@ -1,3 +1,7 @@
+/**
+ * @author Shreeyut
+ * @author Andy
+ */
 package com.example.project4.gui;
 
 import com.example.project4.management.OrderManager;
@@ -15,8 +19,6 @@ import java.io.IOException;
  * Controller class for handling the Order History view.
  * Manages the user interface for displaying historical orders, exporting orders to a file,
  * clearing the history, and canceling selected orders.
- * @author Shreeyut
- * @author Andy
  */
 public class OrderHistoryController {
     private Main mainApp;

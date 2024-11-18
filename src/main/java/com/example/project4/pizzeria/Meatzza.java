@@ -1,11 +1,14 @@
+/**
+ * @author Shreeyut
+ * @author Andy
+ */
 package com.example.project4.pizzeria;
+
 /**
  * Represents a Meatzza pizza, which is a predefined type of pizza with specific meat toppings.
  * The Meatzza pizza includes toppings such as Sausage, Pepperoni, Beef, and Ham.
  * This class extends the abstract {@link Pizza} class and provides its own implementation of the
  * {@code price()} method based on the pizza size.
- * @author Shreeyut
- * @author Andy
  */
 public class Meatzza extends Pizza {
     public Meatzza() {

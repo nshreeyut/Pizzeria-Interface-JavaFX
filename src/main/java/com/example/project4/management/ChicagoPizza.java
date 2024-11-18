@@ -1,3 +1,7 @@
+/**
+ * @author Shreeyut
+ * @author Andy
+ */
 package com.example.project4.management;
 
 import com.example.project4.pizzeria.*;
@@ -6,8 +10,6 @@ import com.example.project4.pizzeria.*;
  * Concrete factory class for creating Chicago-style pizzas.
  * Implements the {@link PizzaFactory} interface to provide specific implementations
  * of Chicago-style pizza types with predefined crusts.
- * @author Shreeyut
- * @author Andy
  */
 public class ChicagoPizza implements PizzaFactory {
 

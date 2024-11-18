@@ -1,15 +1,40 @@
-package com.example.project4.pizzeria;
 /**
- * Enum representing the different types of pizza crusts available.
- * Each crust type is associated with either Chicago-style or New York-style pizzas.
  * @author Shreeyut
  * @author Andy
  */
+package com.example.project4.pizzeria;
+
+/**
+ * Enum representing the available pizza crust types.
+ */
 public enum Crust {
-    DEEP_DISH,   // Chicago
-    PAN,         // Chicago
-    STUFFED,     // Chicago
-    BROOKLYN,    // New York
-    THIN,        // New York
-    HAND_TOSSED; // New York
+    /**
+     * Represents a deep-dish crust, typical of Chicago-style pizzas.
+     */
+    DEEP_DISH,
+
+    /**
+     * Represents a pan crust, often used in Chicago-style pizzas.
+     */
+    PAN,
+
+    /**
+     * Represents a stuffed crust, commonly found in Chicago-style pizzas.
+     */
+    STUFFED,
+
+    /**
+     * Represents a Brooklyn-style crust, typical of New York-style pizzas.
+     */
+    BROOKLYN,
+
+    /**
+     * Represents a thin crust, commonly associated with New York-style pizzas.
+     */
+    THIN,
+
+    /**
+     * Represents a hand-tossed crust, characteristic of New York-style pizzas.
+     */
+    HAND_TOSSED;
 }

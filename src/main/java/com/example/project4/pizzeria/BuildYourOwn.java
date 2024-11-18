@@ -1,3 +1,7 @@
+/**
+ * @author Shreeyut
+ * @author Andy
+ */
 package com.example.project4.pizzeria;
 import java.util.List;
 
@@ -5,8 +9,6 @@ import java.util.List;
  * Represents a customizable pizza where the user can build their own pizza
  * by choosing the desired toppings. This class extends the abstract {@link Pizza} class.
  * The price of the pizza is based on the selected size and the number of toppings.
- * @author Shreeyut
- * @author Andy
  */
 public class BuildYourOwn extends Pizza {
 

@@ -1,3 +1,7 @@
+/**
+ * @author Shreeyut
+ * @author Andy
+ */
 package com.example.project4.management;
 
 import com.example.project4.pizzeria.Pizza;
@@ -7,6 +11,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Manages the orders in the RU Pizzeria Management System.
+ * This class handles the current active order being created and maintains a history of all past orders.
+ * It provides functionality for adding, managing, and exporting orders.
+ */
 public class OrderManager {
     private List<Order> historicalOrders;    // List of past (historical) orders
     private Order currentOrder;              // The active order being created
@@ -14,8 +23,6 @@ public class OrderManager {
     /**
      * Constructor for OrderManager.
      * Initializes empty lists for current and historical orders.
-     * @author Shreeyut
-     * @author Andy
      */
     public OrderManager() {
         this.historicalOrders = new ArrayList<>();

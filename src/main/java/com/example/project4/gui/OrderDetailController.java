@@ -1,3 +1,7 @@
+/**
+ * @author Shreeyut
+ * @author Andy
+ */
 package com.example.project4.gui;
 
 import com.example.project4.management.OrderManager;
@@ -11,8 +15,6 @@ import javafx.scene.control.ListView;
  * Manages the display of the current order details, including the list of pizzas,
  * subtotal, tax, and total price. Provides functionality to remove pizzas, clear the order,
  * place the order, and navigate to other views.
- * @author Shreeyut
- * @author Andy
  */
 public class OrderDetailController {
     @FXML
