@@ -130,7 +130,6 @@ public class OrderHistoryController {
      * Removes the order from the historical orders list and updates the ListView.
      * Updates the status label based on whether the cancellation was successful.
      */
-
     public void cancelOrderButtonClicked() {
         int selectedIndex = orderHistoryListView.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0 && orderManager != null) {
